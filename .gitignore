@@ -1,0 +1,8 @@
+Model/stage1_clip/
+Model/stage2_clip/
+Model/trained_vlm_for_bimcv_r/
+Model/trained_vlm_for_ct_rate/
+Model/trained_vlm_for_rad_geome/
+
+Preprint/Bench/eval_caption_results
+Preprint/Bench/eval/eval_Radgeome_VQA
