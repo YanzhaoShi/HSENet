@@ -1,11 +1,12 @@
 # HSENet: Hybrid Spatial Encoding Network for 3D Medical Vision-Language Understanding
 
-<font size=3><div align='center' > <a href=https://arxiv.org/abs/2506.09634>**Paper**</a> | [**Data**](#data) | [**Model**](#model) | [**Training**](#training) | [**inference**](#inference)</div></font>
+<font size=3><div align='center' > <a href=https://arxiv.org/abs/2506.09634>**Paper**</a> | [**Data**](#data) | [**Model**](#model) | [**Pretraining**](#pretraining) | [**Finetunning**](#finetunning) | [**Inference**](#inference)</div></font>
 
 HSENet introduces a novel approach to 3D medical vision-language understanding. It presents new paradigms for pre-training, a visual-language foundation model, and an efficient 3D token compression strategy.
 
-## 🔥 Data Preparation
 
+## 🔥 Data Preparation
+<a id="data"></a>
 ### Extract 3D Volume-Report Pairs from CT-RATE
 
 > We use the **CT-RATE dataset** for medical image-text retrieval and report generation tasks. The data processing pipeline involves the following steps:
@@ -42,6 +43,24 @@ HSENet introduces a novel approach to 3D medical vision-language understanding. 
 ### Extract VQA Samples from RadGenome
 
 1. **Download the RadGenome dataset** from [official source](https://huggingface.co/datasets/RadGenome/RadGenome-ChestCT).
+
+
+## Model
+<a id="model"></a>
+
+| Model    | Download Link                                                                                                                                 |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| HSENet-CLIP | [HuggingFace](https://huggingface.co/Yanzhaoshi/HSENet_CLIP/tree/main), [ModelScope]()    |
+| HSENet-2E3-CLIP | [HuggingFace](https://huggingface.co/Yanzhaoshi/HSENet-2E3-CLIP/tree/main), [ModelScope]()    |
+| HSENet-Phi-4-4B (MRG) | [HuggingFace](https://huggingface.co/Yanzhaoshi/HSENet-Phi-4-4B/tree/main/trained_vlm_for_ct_rate), [ModelScope]()|
+| HSENet-Phi-4-4B (VQA) | [HuggingFace](https://huggingface.co/Yanzhaoshi/HSENet-Phi-4-4B/tree/main/trained_vlm_for_rad_geome), [ModelScope]()|
+
+**Notes:**
+
+* **MRG** stands for **Medical Report Generation**.
+* **HSENet-CLIP** and **HSENet-2E3-CLIP** are models trained in **Stage 1** and **Stage 2**, respectively.
+
+
 
 ## 🔧 Requirements
 
@@ -97,22 +116,8 @@ use_cpu: false
 
 ---
 
-## Model
-
-| Model    | Download Link                                                                                                                                 |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| HSENet-CLIP | [HuggingFace](), [ModelScope]()    |
-| HSENet-2E3-CLIP | [HuggingFace](), [ModelScope]()    |
-| HSENet-Phi-4-4B (MRG) | [HuggingFace](), [ModelScope]()|
-| HSENet-Phi-4-4B (VQA) | [HuggingFace](), [ModelScope]()|
-
-**Notes:**
-
-* **MRG** stands for **Medical Report Generation**.
-* **HSENet-CLIP** and **HSENet-2E3-CLIP** are models trained in **Stage 1** and **Stage 2**, respectively.
-
 ## 🚀 Dual-stage Vision-Language Pre-training
-
+<a id="pretraining"></a>
 The model is pretrained in two stages:
 
 ### Stage 1: Pre-training the 3D Vision Encoder
@@ -139,6 +144,8 @@ nohup bash LaMed/script/train_clip_stage2.sh > train_stage2.log 2>&1 &
 
 ## 🚀 MLLM Finetunning
 
+<a id="finetunning"></a>
+
 ### Medical Report Generation
 
 To finetune the HSENet on report generation, run this command:
@@ -158,6 +165,8 @@ nohup bash LaMed/script/train_vlm_vqa.sh > dualViTs_spatialpacker_vqa.log 2>&1 &
 ```
 
 ## 📊 Evaluation
+
+<a id="inference"></a>
 
 ### 3D Image-Text Retrieval
 
