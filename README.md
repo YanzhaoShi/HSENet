@@ -5,7 +5,7 @@
 HSENet introduces a novel approach to 3D medical vision-language understanding. It presents new paradigms for pre-training, a visual-language foundation model, and an efficient 3D token compression strategy.
 
 
-## 🔥 Data Preparation
+## 📁 Data Preparation
 <a id="data"></a>
 ### Extract 3D Volume-Report Pairs from CT-RATE
 
@@ -45,7 +45,7 @@ HSENet introduces a novel approach to 3D medical vision-language understanding. 
 1. **Download the RadGenome dataset** from [official source](https://huggingface.co/datasets/RadGenome/RadGenome-ChestCT).
 
 
-## Model
+## 🔗 Model
 <a id="model"></a>
 
 | Model    | Download Link                                                                                                                                 |
@@ -217,7 +217,7 @@ To evaluate the performance of **HSENet** for VQA, run:
 python Preprint/Bench/eval/eval_HSENet_Rad_Geome_VQA.py
 ```
 
-## Citation
+## 🔍 Citation
 
 If you find this project helpful, please cite our work:
 
@@ -230,9 +230,13 @@ If you find this project helpful, please cite our work:
 }
 ```
 
-## Acknowledgement
+## ✨ Acknowledgement
 
 We would like to acknowledge open-source projects that have contributed to this work:
 
 * [M3D](https://github.com/BAAI-DCAI/M3D)
+* [CT-CLIP](https://github.com/ibrahimethemhamamci/CT-CLIP)
+* [Med3DVLM](https://github.com/mirthAI/Med3DVLM)
 * [Phi-4](https://huggingface.co/spaces/microsoft/phi-4-mini)
+
+
