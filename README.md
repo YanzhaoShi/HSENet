@@ -117,6 +117,8 @@ use_cpu: false
 ---
 
 ## 🚀 Dual-stage Vision-Language Pre-training
+<img width="1650" height="906" alt="image" src="https://github.com/user-attachments/assets/b22a69fb-7f7b-40ea-bba9-3a0c8413fbb2" />
+
 <a id="pretraining"></a>
 The model is pretrained in two stages:
 
@@ -143,6 +145,8 @@ nohup bash LaMed/script/train_clip_stage2.sh > train_stage2.log 2>&1 &
 ---
 
 ## 🚀 MLLM Finetunning
+
+<img width="1638" height="738" alt="image" src="https://github.com/user-attachments/assets/dabbfb9a-638f-4511-815c-d026d6847689" />
 
 <a id="finetunning"></a>
 
