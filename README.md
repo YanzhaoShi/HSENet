@@ -117,12 +117,16 @@ use_cpu: false
 ---
 
 ## 🚀 Dual-stage Vision-Language Pre-training
-<img width="1650" height="906" alt="image" src="https://github.com/user-attachments/assets/b22a69fb-7f7b-40ea-bba9-3a0c8413fbb2" />
 
 <a id="pretraining"></a>
-The model is pretrained in two stages:
+
+Here is the overview of the dual-stage pretraining framework. The model is pretrained in two stages:
+
+<img width="800" height="906" alt="image" src="https://github.com/user-attachments/assets/b22a69fb-7f7b-40ea-bba9-3a0c8413fbb2" />
 
 ### Stage 1: Pre-training the 3D Vision Encoder
+
+The 3D Vision Encoder is trained for global vision-language alignment using paired 3D volumes and medical reports.
 
 To train the Stage 1 model (**HSENet-CLIP**), run:
 
@@ -133,9 +137,9 @@ nohup bash LaMed/script/train_clip_stage1.sh > train_stage1.log 2>&1 &
 
 ### Stage 2: Pre-training the 2D-Enhanced 3D Vision Encoder
 
+The 2E3 Vision Encoder is trained to exploit anatomy-related local 3D patches aligned with reports. A semantic consistency loss is applied in Stage 2 to maintain alignment with the global relations learned in Stage 1, ensuring a stable local representation refinement.
 
 To train the Stage 2 model (**HSENet-2E3-CLIP**), run:
-
 
 ```bash
 cd HSENet/Preprint/
@@ -146,9 +150,14 @@ nohup bash LaMed/script/train_clip_stage2.sh > train_stage2.log 2>&1 &
 
 ## 🚀 MLLM Finetunning
 
-<img width="1638" height="738" alt="image" src="https://github.com/user-attachments/assets/dabbfb9a-638f-4511-815c-d026d6847689" />
-
 <a id="finetunning"></a>
+
+Here is the architecture of the proposed HSENet:
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/dabbfb9a-638f-4511-815c-d026d6847689" />
+
+The input 3D CT volume is processed in parallel by the 3D Vision Encoder and the 2E3 Vision Encoder to extract rich, multi-scale features.
+These hybrid visual representations are then projected by two dedicated spatial packers into the semantic space of LLM, enabling effective 3D medical vision-language modeling.
 
 ### Medical Report Generation
 
