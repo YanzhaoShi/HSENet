@@ -122,7 +122,7 @@ use_cpu: false
 
 Here is the overview of the dual-stage pretraining framework. The model is pretrained in two stages:
 
-<img width="800" height="906" alt="image" src="https://github.com/user-attachments/assets/b22a69fb-7f7b-40ea-bba9-3a0c8413fbb2" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/b22a69fb-7f7b-40ea-bba9-3a0c8413fbb2" />
 
 ### Stage 1: Pre-training the 3D Vision Encoder
 
