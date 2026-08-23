@@ -1,3 +1,5 @@
+
+
 # HSENet: Hybrid Spatial Encoding Network for 3D Medical Vision-Language Understanding
 
 <font size=3><div align='center' > <a href=https://arxiv.org/abs/2506.09634>**Paper**</a> | [**Data**](#data) | [**Model**](#model) | [**Pretraining**](#pretraining) | [**Finetunning**](#finetunning) | [**Inference**](#inference)</div></font>
@@ -26,7 +28,7 @@ HSENet introduces a novel approach to 3D medical vision-language understanding. 
    python CT-RATE_nii_to_2D_slices.py
    ```
 
-4. **Normalize and standardize the extracted 2D slices**, then save them as `.npy` files:
+4. **Extract BiomedCLIP features from the extracted 2D slices** and save them as `.npy` files:
 
    ```bash
    python CT-RATE_2D_to_npy_file.py
@@ -238,5 +240,3 @@ We would like to acknowledge open-source projects that have contributed to this 
 * [CT-CLIP](https://github.com/ibrahimethemhamamci/CT-CLIP)
 * [Med3DVLM](https://github.com/mirthAI/Med3DVLM)
 * [Phi-4](https://huggingface.co/spaces/microsoft/phi-4-mini)
-
-
